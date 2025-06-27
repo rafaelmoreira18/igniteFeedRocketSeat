@@ -1,5 +1,5 @@
 import { Avatar } from './Avatar';
-import { Commment } from './Comment';
+import { Comment } from './Comment';
 import styles from './Post.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -21,12 +21,12 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true
   });
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event) {
     event.target.setCustomValidity('');
     setNewComment(event.target.value)
   }
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event) {
     event.preventDefault();
 
     setComments([...comments, newComment]);
@@ -41,7 +41,7 @@ export function Post({ author, publishedAt, content }) {
     setComments(commentsWithOutDeletedOne);
   }
 
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event) {
     event.target.setCustomValidity('Esse campo é obrigatório!');
 
   }
@@ -71,7 +71,7 @@ export function Post({ author, publishedAt, content }) {
             if (line.type === 'paragraph') {
               return <p key={line.content}>{line.content}</p>;
             } else if (line.type === 'link') {
-              return <p key={line.content}><a href="">{line.content}</a></p>;
+              return <p key={line.content}><a href="#">{line.content}</a></p>;
             }
           })
         }
@@ -98,7 +98,7 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map(comment => <Commment
+        {comments.map(comment => <Comment
           key={comment}
           content={comment}
           onDeleteComment={deleteComment}

@@ -3,7 +3,7 @@ import { ThumbsUp, Trash } from 'phosphor-react';
 import styles from './Comment.module.css';
 import { Avatar } from './Avatar';
 
-export function Commment(props) {
+export function Comment(props) {
   const [likeCount, setLikeCount] = useState(0);
 
   function handleDelete() {
@@ -17,18 +17,18 @@ export function Commment(props) {
 
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://github.com/codewithmiguel.png" />
+      <Avatar hasBorder={false} src="https://github.com/guilhermecapitao.png" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>Pedro Miguel</strong>
+              <strong>Guilherme Capitão</strong>
               <time
-                title='06 de Junho de 2022 às 15h30'
-                dateTime="2022-06-06 15:33:00"
+                title='15 de Janeiro de 2024 às 09h30'
+                dateTime="2024-01-15 09:30:00"
               >
-                Cerca de 1h atrás
+                Cerca de 2h atrás
               </time>
             </div>
 
